@@ -1,0 +1,6 @@
+pandas
+scikit-learn
+joblib
+
+## unutar terminala pokrenuti naredbu:
+## pip install -r requirements.txt
