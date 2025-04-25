@@ -1,4 +1,3 @@
-# train_model.py
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -37,7 +36,12 @@ model.fit(X_train, y_train)
 # Evaluacija
 predictions = model.predict(X_test)
 print("\n=== Classification Report ===")
-print(classification_report(y_test, predictions, target_names=label_encoder.classes_))
+print(classification_report(
+    y_test, predictions,
+    labels=sorted(list(set(y_test))),
+    target_names=label_encoder.inverse_transform(sorted(list(set(y_test))))
+))
+
 print("\n=== Confusion Matrix ===")
 print(confusion_matrix(y_test, predictions))
 

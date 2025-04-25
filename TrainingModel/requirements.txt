@@ -1,6 +1,7 @@
 pandas
 scikit-learn
 joblib
+flask
 
 ## unutar terminala pokrenuti naredbu:
 ## pip install -r requirements.txt
