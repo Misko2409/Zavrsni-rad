@@ -1,3 +1,5 @@
+import pandas as pd
+from joblib import load
 import datetime
 
 # Učitavanje spremljenog modela i label encodera
@@ -12,6 +14,10 @@ pressure = float(input("Tlak (hPa): "))
 wind_speed = float(input("Brzina vjetra (km/h): "))
 wind_direction = float(input("Smjer vjetra (stupnjevi): "))
 precipitation = float(input("Oborine (mm): "))
+cloudcover = float(input("Oblačnost (%): "))
+uv_index = float(input("UV indeks: "))
+snowfall = float(input("Snježne oborine (mm): "))
+is_day = int(input("Dan (1) ili noć (0): "))
 
 # Datum i vrijeme (koristimo za izvlačenje hour, month, weekday)
 datetime_str = input("Datum i vrijeme (YYYY-MM-DD HH:MM): ")
@@ -29,6 +35,10 @@ X_new = pd.DataFrame([{
     "wind_speed_kmh": wind_speed,
     "wind_direction_deg": wind_direction,
     "precipitation_mm": precipitation,
+    "cloudcover_percent": cloudcover,
+    "uv_index": uv_index,
+    "snowfall_mm": snowfall,
+    "is_day": is_day,
     "hour": hour,
     "month": month,
     "day": day,

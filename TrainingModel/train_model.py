@@ -9,12 +9,15 @@ from joblib import dump
 # Učitavanje podataka
 df = pd.read_csv("data/rijeka_weather_openmeteo_5y_labeled.csv")
 
-# 2. Inženjering značajki iz datuma
+# Inženjering značajki iz datuma
 df["datetime"] = pd.to_datetime(df["datetime"])
 df["hour"] = df["datetime"].dt.hour
 df["month"] = df["datetime"].dt.month
 df["day"] = df["datetime"].dt.day
 df["weekday"] = df["datetime"].dt.weekday
+
+# Provjera i popunjavanje nedostajućih vrijednosti (ako postoje)
+df.fillna(0, inplace=True)
 
 # Uklanjanje nepotrebnih stupaca
 X = df.drop(columns=["datetime", "weather_condition_label", "weather_code"])

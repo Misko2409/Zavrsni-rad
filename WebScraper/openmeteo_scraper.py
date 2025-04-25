@@ -6,21 +6,22 @@ from datetime import datetime, timedelta
 latitude = 45.3271
 longitude = 14.4422
 
-# Datum: zadnjih 5 godina
+# Datum: zadnjih 6 godina
 end_date = datetime.today().date()
-start_date = end_date - timedelta(days=10 * 365)
+start_date = end_date - timedelta(days=6 * 365)
 
 # Formatiraj datume za API
 start_str = start_date.strftime("%Y-%m-%d")
 end_str = end_date.strftime("%Y-%m-%d")
 
-# Open-Meteo API URL s weathercode
+# Open-Meteo API URL s proširenim poljima
 url = (
     f"https://archive-api.open-meteo.com/v1/archive?"
     f"latitude={latitude}&longitude={longitude}"
     f"&start_date={start_str}&end_date={end_str}"
     f"&hourly=temperature_2m,relative_humidity_2m,pressure_msl,"
-    f"wind_speed_10m,wind_direction_10m,precipitation,weathercode"
+    f"wind_speed_10m,wind_direction_10m,precipitation,weathercode,"
+    f"cloudcover,uv_index,snowfall,is_day"
     f"&timezone=Europe%2FBerlin"
 )
 
@@ -79,12 +80,17 @@ df = pd.DataFrame({
     "wind_speed_kmh": data["hourly"]["wind_speed_10m"],
     "wind_direction_deg": data["hourly"]["wind_direction_10m"],
     "precipitation_mm": data["hourly"]["precipitation"],
+    "cloudcover_percent": data["hourly"]["cloudcover"],
+    "uv_index": data["hourly"]["uv_index"],
+    "snowfall_mm": data["hourly"]["snowfall"],
+    "is_day": data["hourly"]["is_day"],
     "weather_code": data["hourly"]["weathercode"]
 })
+
 
 # Dodaj tekstualnu oznaku vremena
 df["weather_condition_label"] = df["weather_code"].apply(weathercode_to_label)
 
 # Spremi CSV
 df.to_csv("rijeka_weather_openmeteo_5y_labeled.csv", index=False)
-print("✔️ CSV je uspješno spremljen s vremenskim uvjetima!")
+print("CSV je uspješno spremljen s vremenskim uvjetima!")
