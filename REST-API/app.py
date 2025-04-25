@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from joblib import load
 import pandas as pd
 
 app = Flask(__name__)
+CORS(app)  #omogućuje CORS za sve rute
 
 # Učitaj model i label encoder
 model = load("../TrainingModel/models/weather_classifier_model.pkl")
