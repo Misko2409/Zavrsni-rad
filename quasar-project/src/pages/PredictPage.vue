@@ -23,7 +23,7 @@
 
     <div v-if="result" class="q-mt-lg">
       <q-banner class="bg-primary text-white">
-        🌦️ Prediction: {{ result }}
+        Prediction: {{ translatePredictionToEnglish(result) }}
       </q-banner>
     </div>
   </q-page>
@@ -76,4 +76,26 @@ const submitForm = async () => {
     console.error(err)
   }
 }
+
+//Translating from Croatian To English
+
+function translatePredictionToEnglish(prediction) {
+  const map = {
+    'Vedro': 'Clear',
+    'Sunčano': 'Sunny',
+    'Uglavnom vedro': 'Mostly clear',
+    'Djelomično oblačno': 'Partly cloudy',
+    'Poluoblačno': 'Partly cloudy',
+    'Oblačno': 'Cloudy',
+    'Kiša': 'Rain',
+    'Pljusak': 'Shower',
+    'Grmljavina': 'Thunderstorm',
+    'Snijeg': 'Snow',
+    'Magla': 'Fog',
+    'Nepoznato': 'Unknown'
+  }
+
+  return map[prediction] || prediction
+}
+
 </script>

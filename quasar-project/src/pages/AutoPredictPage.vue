@@ -19,7 +19,7 @@
           </div>
 
           <q-banner class="bg-primary text-white q-mt-md">
-            Prediction now: {{ prediction }}
+            Prediction now: {{ translatePredictionToEnglish(prediction) }}
           </q-banner>
         </div>
 
@@ -65,7 +65,8 @@
                   style="width: 40px; height: 40px"
                 />
               </td>
-              <td>{{ item.prediction }}</td>
+              <td>{{ translatePredictionToEnglish(item.prediction) }}</td>
+
             </tr>
           </tbody>
         </q-markup-table>
@@ -189,4 +190,24 @@ onMounted(async () => {
     loading.value = false
   }
 })
+
+function translatePredictionToEnglish(prediction) {
+  const map = {
+    'Vedro': 'Clear',
+    'Sunčano': 'Sunny',
+    'Uglavnom vedro': 'Mostly clear',
+    'Djelomično oblačno': 'Partly cloudy',
+    'Poluoblačno': 'Partly cloudy',
+    'Oblačno': 'Cloudy',
+    'Kiša': 'Rain',
+    'Pljusak': 'Shower',
+    'Grmljavina': 'Thunderstorm',
+    'Snijeg': 'Snow',
+    'Magla': 'Fog',
+    'Nepoznato': 'Unknown'
+  }
+
+  return map[prediction] || prediction
+}
+
 </script>
