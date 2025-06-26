@@ -3,18 +3,18 @@
     <q-card flat bordered class="q-pa-md shadow-2" :dark="$q.dark.isActive">
       <q-card-section class="row items-center q-gutter-sm">
         <q-icon name="settings" size="md" color="primary" />
-        <div class="text-h5 text-primary text-bold">Postavke aplikacije</div>
+        <div class="text-h5 text-primary text-bold">Application Settings</div>
       </q-card-section>
 
       <q-separator class="q-my-sm" />
 
       <q-card-section>
-        <div class="text-subtitle2 text-grey-8 q-mb-md">Izgled</div>
+        <div class="text-subtitle2 text-grey-8 q-mb-md">Appearance</div>
 
         <q-toggle
           v-model="settingsStore.darkMode"
           :icon="settingsStore.darkMode ? 'light_mode' : 'dark_mode'"
-          label="Tamni način"
+          label="Dark Mode"
           @update:model-value="changeMode"
           class="q-mb-md"
         />

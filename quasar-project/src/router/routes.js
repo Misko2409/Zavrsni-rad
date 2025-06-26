@@ -23,15 +23,22 @@ const routes = [
         name: 'Predict',
         component: () => import('pages/PredictPage.vue'),
       },
-      { path: 'auto-predict',
-        name: "Auto Predict",
+      {
+        path: 'auto-predict',
+        name: 'Auto Predict',
         component: () => import('pages/AutoPredictPage.vue'),
       },
+      {
+        path: 'not-found',
+        name: 'NotFound',
+        component: () => import('pages/ErrorNotFound.vue'),
+      }
     ],
   },
+  // Redirect all unknown routes to /not-found
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
+    redirect: '/not-found'
   }
 ]
 

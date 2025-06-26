@@ -9,12 +9,12 @@
         <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
         <q-toolbar-title class="cursor-pointer row items-center" @click="goToHome">
           <q-icon name="event" class="q-mr-sm" />
-          MyEventUp
+          Weather App
         </q-toolbar-title>
       </q-toolbar>
     </q-header>
 
-    <!-- Drawer -->
+    <!-- Sidebar / Drawer -->
     <q-drawer
       v-model="leftDrawerOpen"
       show-if-above
@@ -23,16 +23,16 @@
       :dark="$q.dark.isActive"
     >
       <q-list>
-        <q-item-label header class="text-primary">Navigacija</q-item-label>
-        <EssentialLink title="AI Predikcija" to="predict" />
+        <q-item-label header class="text-primary">Navigation</q-item-label>
+        <EssentialLink title="AI Forecast" to="predict" />
         <EssentialLink title="AI Auto" to="auto-predict" />
         <EssentialLink title="Settings" to="settings" />
         <EssentialLink title="Contacts" to="contacts" />
-        <EssentialLink title="ShareApp" to="ShareApp" />
+        <EssentialLink title="Share App" to="ShareApp" />
       </q-list>
     </q-drawer>
 
-    <!-- Page content -->
+    <!-- Page Content -->
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -43,7 +43,7 @@
       :class="$q.dark.isActive ? 'bg-dark text-white' : ''"
       :dark="$q.dark.isActive"
     >
-      EventUp! MM AS
+      Weather App MM
     </q-footer>
   </q-layout>
 </template>
