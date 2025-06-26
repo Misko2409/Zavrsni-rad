@@ -1,10 +1,78 @@
-Firstly open the terminal and run "pip install -r requirements.txt" after that open up the WebScraper adjust the timespan of the 
-dataset and then run it using the ".\openmeteo_scrapper.py". That will create a CSV File with the necessary data, after that we 
-move the dataset to the "TrainingModel/data" File and run the .\train_model.py when the training completes we should have 2 new files in the
-"TrainingModel/models". Those files will be used in our "REST-API/app.py"
+# AI Weather Prediction Web App
 
-We run the ".\app.py"
+This application collects weather data using an API, trains a machine learning model, and provides predictions through a REST API and a web interface built with Quasar.
 
-Afterwards inside the quasar-project terminal run "npm init" if needed and then "quasar dev"
+---
 
-The Web Application should work perfectly with the already trained program and should give us farely accurate results
+## Environment Setup
+
+### IMPORTANT
+**Preparation:**
+   - Delete any existing `.csv` files from the `WebScraper` or `TrainingModel/data` folders.
+   - Delete any existing model files from the `TrainingModel/models` folder (if any).
+
+1. Open a terminal in the TrainingModel directory and run:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+## Training The AI Model
+
+To properly train the model, follow these steps:
+
+1. **Scraping:**
+   - From the `WebScraper` folder, run:
+
+     ```
+      openmeteo_scraper.py
+     ```
+
+2. **Move Data:**
+   - Move the newly created `.csv` file to the `TrainingModel/data` folder.
+
+
+3. **Train the Model:**
+   - Run the training script:
+
+     ```
+      train_model.py
+     ```
+
+4. **Test the Model:**
+   - After training, two model files will appear in `TrainingModel/models`.
+   - Test the models by running:
+
+     ```
+      test/predict.py
+     ```
+
+---
+
+## Running the Web Application (Quasar)
+
+1. In the Quasar project terminal, run:
+
+   ```
+   npm init
+   ```
+
+   *(only if the project hasn't been initialized yet)*
+
+2. Then start the REST-API:
+    - Open new integrated terminal inside the REST-API Folder and run:
+    ```
+    .\app.py
+    ```
+
+3. Then start the development server:
+
+   ```
+   quasar dev
+   ```
+
+---
+
+## Final Notes
+
+The web application should now work correctly with the trained models and provide fairly accurate weather predictions.
