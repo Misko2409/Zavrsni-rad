@@ -4,22 +4,22 @@ from joblib import load
 import pandas as pd
 
 app = Flask(__name__)
-CORS(app)  #omogućuje CORS za sve rute
+CORS(app)  #Enables CORS for all routes
 
-# Učitaj model i label encoder
+# Loads the model and the label encoder
 model = load("../TrainingModel/models/weather_classifier_model.pkl")
 label_encoder = load("../TrainingModel/models/weather_label_encoder.pkl")
 
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
-        # Dohvati JSON podatke iz zahtjeva
+        # Fetches JSON Data from the Request
         data = request.get_json()
 
-        # Pretvori u DataFrame (mora biti u obliku dict -> list)
+        # Transform to DataFrame (must be in form dict -> list)
         df = pd.DataFrame([data])
 
-        # Predikcija
+        # Prediction
         prediction = model.predict(df)
         label = label_encoder.inverse_transform(prediction)
 
