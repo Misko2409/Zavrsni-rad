@@ -28,7 +28,7 @@
         <EssentialLink title="AI Auto" to="auto-predict" />
         <EssentialLink title="Settings" to="settings" />
         <EssentialLink title="Contacts" to="contacts" />
-        <EssentialLink title="Share App" to="ShareApp" />
+        <!--<EssentialLink title="Share App" to="ShareApp" />-->
       </q-list>
     </q-drawer>
 

@@ -204,6 +204,12 @@ function translatePredictionToEnglish(prediction) {
     'Grmljavina': 'Thunderstorm',
     'Snijeg': 'Snow',
     'Magla': 'Fog',
+    'Slaba kiša': 'Slight Rain',
+    'Umjerena kiša': 'Moderate Rain',
+    'Umjerena rosulja': 'Moderate Drizzle',
+    'Slaba rosulja': 'Slight Drizzle',
+    'Jaka rosulja': 'Heavy Drizzle',
+    'Jaka kiša': 'Heavy Rain',
     'Nepoznato': 'Unknown'
   }
 
