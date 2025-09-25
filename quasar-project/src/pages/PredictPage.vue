@@ -81,19 +81,47 @@ const submitForm = async () => {
 
 function translatePredictionToEnglish(prediction) {
   const map = {
-    'Vedro': 'Clear',
-    'Sunčano': 'Sunny',
-    'Uglavnom vedro': 'Mostly clear',
-    'Djelomično oblačno': 'Partly cloudy',
-    'Poluoblačno': 'Partly cloudy',
-    'Oblačno': 'Cloudy',
-    'Kiša': 'Rain',
-    'Pljusak': 'Shower',
-    'Grmljavina': 'Thunderstorm',
-    'Snijeg': 'Snow',
-    'Magla': 'Fog',
-    'Nepoznato': 'Unknown'
-  }
+  'Vedro': 'Clear',
+  'Uglavnom vedro': 'Mostly clear',
+  'Djelomično oblačno': 'Partly cloudy',
+  'Oblačno': 'Cloudy',
+
+  'Magla': 'Fog',
+  'Smrzavajuća magla': 'Freezing fog',
+
+  'Slaba rosulja': 'Slight drizzle',
+  'Umjerena rosulja': 'Moderate drizzle',
+  'Jaka rosulja': 'Heavy drizzle',
+
+  'Slaba smrzavajuća rosulja': 'Slight freezing drizzle',
+  'Jaka smrzavajuća rosulja': 'Heavy freezing drizzle',
+
+  'Slaba kiša': 'Slight rain',
+  'Umjerena kiša': 'Moderate rain',
+  'Jaka kiša': 'Heavy rain',
+
+  'Slaba smrzavajuća kiša': 'Slight freezing rain',
+  'Jaka smrzavajuća kiša': 'Heavy freezing rain',
+
+  'Slab snijeg': 'Slight snow',
+  'Umjeren snijeg': 'Moderate snow',
+  'Jak snijeg': 'Heavy snow',
+  'Zrnca snijega': 'Snow grains',
+
+  'Slabi pljuskovi': 'Slight showers',
+  'Umjereni pljuskovi': 'Moderate showers',
+  'Jaki pljuskovi': 'Heavy showers',
+
+  'Slabi snježni pljuskovi': 'Slight snow showers',
+  'Jaki snježni pljuskovi': 'Heavy snow showers',
+
+  'Grmljavina': 'Thunderstorm',
+  'Grmljavina s malo tuče': 'Thunderstorm with slight hail',
+  'Grmljavina s jakom tučom': 'Thunderstorm with heavy hail',
+
+  'Nepoznato': 'Unknown'
+}
+
 
   return map[prediction] || prediction
 }
